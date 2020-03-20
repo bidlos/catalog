@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4"><a href="?login=user" type="submit" class="btn btn-outline-primary">Добавить Товар</a></div>
+        <div class="col-md-4"><a href="?product=add" type="submit" class="btn btn-outline-primary">Добавить Товар</a></div>
         <div class="col-md-4"></div>
         <div class="col-md-4"></div>
     </div>
@@ -30,7 +30,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    <a href="?product=edit" type="button" class="btn btn-sm btn-outline-secondary" name="edit-btn">Edit</a>
                                 </div>
                                 <small class="text-muted"><?php echo $key['date']; ?></small>
                             </div>
