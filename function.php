@@ -42,9 +42,5 @@ if (isset($_GET['add-info'])) {
     $lastName = htmlspecialchars($_GET['last-name']);
     $phone =(int)$_GET['phone'];
     $internet = "INSERT INTO `internet`(`place`, `last_name`, `phone`) VALUES ('$place', '$lastName', '$phone')";
-    if (mysqli_query($link, $internet)) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $internet . "<br>" . mysqli_error($link);
-    }
+
 }
