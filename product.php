@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row">
         <?php
@@ -11,14 +10,16 @@
                     </svg>
                     <div class="card-body">
                         <p class="card-text">
-                            <h3><?php echo $key['title']; ?></h3>
+                            <h3><a href="?product=<?php echo $key['id']; ?>"><?php echo $key['title']; ?></a></h3>
                         </p>
-                        <p><h6><?php echo $key['category']; ?></h6></p>
+                        <p>
+                            <h6><?php echo $key['category']; ?></h6>
+                        </p>
                         <p class="card-text"><?php echo mb_strimwidth($key['description'], 0, 100, '...'); ?></p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="?product=edit" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <a href="?product=<?php echo $key['id']; ?>" type="button" class="btn btn-sm btn-outline-secondary">View</a>
                             </div>
                             <small class="text-muted"><?php echo $key['date']; ?></small>
                         </div>
