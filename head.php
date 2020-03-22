@@ -12,20 +12,12 @@
 
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-         <h5 class="my-0 mr-md-auto font-weight-normal"><a href="index.php">Shopper Popper</a></h5>
-         <nav class="my-2 my-md-0 mr-md-3">
- <!--           <a class="p-2 text-dark" href="#">Features</a> -->
+        <h5 class="my-0 mr-md-auto font-weight-normal"><a href="index.php">Shopper Popper</a></h5>
+        <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="?internet">Белтелеком</a>
             <a class="p-2 text-dark" href="?product=items">Product</a>
-<?php if ($_SESSION) { ?> <a class="p-2 text-dark" href="?login=account">Account</a> <?php } ?>
+            <a class="p-2 text-dark" href="?login=account">Account</a>
         </nav>
-
-        <?php
-
-        if (!$_SESSION['login']) { ?>
-            <a href="?login=user" type="submit" class="btn btn-outline-primary">Войти</a>
-        <?php } else { ?>
-            <form action="" method="post"><input type="submit" class="btn btn-outline-primary" name="unset" value="Выйти"></form>
-        <?php } ?>
+        <a href="?login=user" type="submit" class="btn btn-outline-primary">Войти</a>
+        <form action="" method="post"><input type="submit" class="btn btn-outline-primary" name="unset" value="Выйти"></form>
     </div>
-    
