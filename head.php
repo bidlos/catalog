@@ -18,6 +18,6 @@
             <a class="p-2 text-dark" href="?product=items">Product</a>
             <a class="p-2 text-dark" href="?login=account">Account</a>
         </nav>
-        <a href="?login=user" type="submit" class="btn btn-outline-primary">Войти</a>
-        <form action="" method="post"><input type="submit" class="btn btn-outline-primary" name="unset" value="Выйти"></form>
+        <?php if(!$_SESSION['login']){ ?><a href="?login=user" type="submit" class="btn btn-outline-primary">Войти</a> <?php } ?>
+        <?php if($_SESSION['login']){ ?><form action="" method="post"><input type="submit" class="btn btn-outline-primary" name="unset" value="Выйти"></form><?php } ?>
     </div>

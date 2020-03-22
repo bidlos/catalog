@@ -15,15 +15,4 @@ $shopQuery = mysqli_query($link, $shop) or die();
 $items = 'SELECT * FROM `shop_items`';
 $itemsQuery = mysqli_query($link, $items) or die();
 
-class Login
-{
-    public function LoginEnter($login, $password)
-    {
-        global $userQuery;
-        foreach ($userQuery as $key) {
-            if ($login == $key['user_login'] || $password == $key['user_password']) {
-                return $login;
-            }
-        }
-    }
-}
+
