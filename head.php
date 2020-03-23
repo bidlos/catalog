@@ -19,5 +19,10 @@
             <a class="p-2 text-dark" href="?login=account">Account</a>
         </nav>
         <?php if(!$_SESSION['login']){ ?><a href="?login=user" type="submit" class="btn btn-outline-primary">Войти</a> <?php } ?>
-        <?php if($_SESSION['login']){ ?><form action="" method="post"><input type="submit" class="btn btn-outline-primary" name="unset" value="Выйти"></form><?php } ?>
+        <?php if($_SESSION['login']){ ?><form method="post" action="/index.php?login=user"><button type="submit" name="unset" class="btn btn-primary">Выйти</button></form><?php }
+        if (isset($_POST['unset'])) {
+            echo '<meta http-equiv="refresh" content="0.01">';
+            $Login->logOut();
+        }
+        ?>
     </div>
