@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
     echo $Login->loginEnter($_POST['login'], $_POST['password']);
 }
 if (isset($_POST['submitReg'])) {
-    echo '<meta http-equiv="refresh" content="0.01">';
+    // echo '<meta http-equiv="refresh" content="0.01">';
     echo $Login->registerUser();
 }
 

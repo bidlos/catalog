@@ -19,6 +19,7 @@ class Login
 {
     public function loginEnter($login, $password)
     {
+
         global $userQuery;
         foreach ($userQuery as $key) {
             if (htmlspecialchars($login) == $key['user_login'] || md5($password) == $key['user_password']) {
@@ -29,12 +30,17 @@ class Login
     }
     public function registerUser()
     {
-        $regLogin = htmlspecialchars($_POST['login']);
-        $regName = htmlspecialchars($_POST['name']);
-        $regEmail = htmlspecialchars($_POST['email']);
-        $regPassword = md5($_POST['password']);
-        $registerUser1 = "INSERT INTO `shop_user`(`user_login`, `user_name`, `user_email`, `user_password`) VALUES (`$regLogin`, `$regName`, `$regEmail`, `$regPassword`)";
-        return $registerUser1;
+        global $link;
+        $regLogin=($_POST['login']);
+        $regName=($_POST['name']);
+        $regEmail=preg_replace ("/^[^a-zA-ZА-Яа-я0-9@\s]*$/","",$_POST["email"]);
+        $regPassword=($_POST['password']);
+        $registerUser1 = ("INSERT INTO `shop_user` (`user_login`, `user_name`, `user_email`, `user_password`) VALUES (`$regLogin`, `$regName`, `$regEmail`, `md5($regPassword)`)");
+        if (mysqli_query($link, $registerUser1)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $registerUser1 . "<br>" . mysqli_error($link);
+        }
     }
     public function logOut()
     {
@@ -42,8 +48,4 @@ class Login
     }
 }
 
-
 $Login = new Login();
-
-
-echo 'test';
