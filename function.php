@@ -77,7 +77,9 @@ $Login = new Login();
 $input_name = 'file';
  
 // Разрешенные расширения файлов.
-$allow = array();
+$allow = array(
+    'jpg', 'jpeg', 'gif', 'bmp'
+);
  
 // Запрещенные расширения файлов.
 $deny = array(
@@ -174,7 +176,14 @@ if (isset($_FILES[$input_name])) {
 				// Перемещаем файл в директорию.
 				if (move_uploaded_file($file['tmp_name'], $path . $name)) {
 					// Далее можно сохранить название файла в БД и т.п.
-					$success = 'Файл «' . $name . '» успешно загружен.';
+                    $success = 'Файл «' . $name . '» успешно загружен.';
+                    $query = 'INSERT INTO `shop_img`(`img_name`, `shop_user_id`) VALUES ("'.$name.'", "'.$_SESSION['id'].'")';
+                    if (mysqli_query($link, $query)) {
+                        echo "New record created successfully";
+                    } else {
+                        echo $_SESSION['id'];
+                        echo "Error: " . $query . "<br>" . mysqli_error($link);
+                    }
 				} else {
 					$error = 'Не удалось загрузить файл.';
 				}
