@@ -16,7 +16,9 @@
         $img = 'SELECT * FROM `shop_img`';
         $imgQuery = mysqli_query($link, $img) or die();
         foreach ($imgQuery as $img) {
-            echo '<img src="/uploads/' . $img['img_name'] . '">';
+            
+            echo '<img src="/uploads/' . $img['img_name'] . '" style="width:100%;">';
+            
         }
 
         ?>
